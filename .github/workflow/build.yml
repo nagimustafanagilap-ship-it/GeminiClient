@@ -17,10 +17,12 @@ jobs:
             unzip GeminiClient.zip -d .
             rm GeminiClient.zip
           fi
+          # الدخول إلى المجلد المفكوك وتشغيل التجميع من داخله
+          cd GeminiClient
           chmod +x gradlew
           ./gradlew build
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: GeminiClient-Jar
-          path: build/libs/*.jar
+          path: GeminiClient/build/libs/*.jar
